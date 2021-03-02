@@ -8,11 +8,12 @@ By: it's literally monique
 import numpy as np
 import matplotlib.pyplot as plt
   
-#initialize list & set first values to 1
+# initialize rows, columns and iterations
 rows = 1000
 cols = 1000
 iterations = 150
 
+# function that will calculate the specific values in the mandelbrot set
 def mandelbrot(c, z):
     global iterations
     count = 0
@@ -23,6 +24,7 @@ def mandelbrot(c, z):
             break
     return count
 
+# function that will create the mandelbrot set
 def mandelbrot_set(x, y):
     m = np.zeros((len(x), len(y)))
     for i in range(len(x)):
@@ -33,9 +35,11 @@ def mandelbrot_set(x, y):
             m[i, j] = count
     return m
 
+# create our x and y coordinates using numpy
 x = np.linspace(-2, 1, rows)
 y = np.linspace(-1, 1, cols)
 
+# create our mandelbrot set
 m = mandelbrot_set(x, y)
 
 # show the set (best colors: binary, hot, bone, magma)
